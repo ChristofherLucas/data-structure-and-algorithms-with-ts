@@ -1,5 +1,9 @@
 export class Stack<T> {
-  private items: Array<T> = [];
+  private items: Array<T>;
+
+  constructor() {
+    this.items = [];
+  }
 
   // adds a new item to the top of the stack
   stackUp(element: T) {
@@ -18,11 +22,11 @@ export class Stack<T> {
 
   // returns the item at the top of the stack
   peek(): T {
-    return this.items[this.items.length - 1];
+    return this.items[this.items.length];
   }
 
   // check if the stack is empty
   isEmpty(): boolean {
-    return this.size() == 0;
+    return this.size() === 0;
   }
 }
