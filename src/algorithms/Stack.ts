@@ -5,27 +5,23 @@ export class Stack<T> {
     this.items = [];
   }
 
-  // adds a new item to the top of the stack
   stackUp(element: T) {
     this.items.push(element);
   }
 
-  // removes the item from the top of the stack
   unstack(): T | undefined {
     return this.items.pop();
   }
 
-  // returns the stack size
   size(): number {
     return this.items.length;
   }
 
-  // returns the item at the top of the stack
-  peek(): T {
+  peek(): T | undefined {
+    if (this.isEmpty()) return undefined;
     return this.items[this.items.length];
   }
 
-  // check if the stack is empty
   isEmpty(): boolean {
     return this.size() === 0;
   }
