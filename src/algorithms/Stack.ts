@@ -1,5 +1,5 @@
 export class Stack<T> {
-  private items: Array<T>;
+  private items: T[];
 
   constructor() {
     this.items = [];
@@ -24,5 +24,9 @@ export class Stack<T> {
 
   isEmpty(): boolean {
     return this.size() === 0;
+  }
+
+  toString(): string {
+    return this.items.toString();
   }
 }

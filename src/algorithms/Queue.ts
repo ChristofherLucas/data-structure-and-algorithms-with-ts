@@ -1,10 +1,8 @@
 export class Queue<T> {
-  private items: Array<T>;
-  private lowestCount: number;
+  private items: T[];
 
   constructor() {
     this.items = [];
-    this.lowestCount = 0;
   }
 
   enqueue(element: T) {
@@ -13,19 +11,16 @@ export class Queue<T> {
 
   dequeue(): T | undefined {
     if (this.isEmpty()) return undefined;
-    const firstItem = this.items[this.lowestCount];
-    delete this.items[this.lowestCount];
-    this.lowestCount++;
-    return firstItem;
+    return this.items.shift();
   }
 
   peek(): T | undefined {
     if (this.isEmpty()) return undefined;
-    return this.items[this.lowestCount];
+    return this.items[0];
   }
 
   size(): number {
-    return this.items.length - this.lowestCount;
+    return this.items.length;
   }
 
   isEmpty(): boolean {
@@ -34,7 +29,6 @@ export class Queue<T> {
 
   clear(): void {
     this.items = [];
-    this.lowestCount = 0;
   }
 
   toString(): string {
