@@ -8,12 +8,13 @@ export class Deck<T> {
     if (this.isEmpty()) {
       this.addBack(element);
     } else if (this.items.length > 0) {
-      this.items.splice(this.items.length, 0, element);
+      this.items.splice(this.items.length - 1, 0, element);
+    } else {
+      for (let i = this.items.length; i > 0; i--) {
+        this.items.splice(i, 0, this.items[i - 1]);
+      }
+      this.items.splice(0, 0, element);
     }
-    for (let i = this.items.length; i > 0; i--) {
-      this.items.splice(i, 0, this.items[i - 1]);
-    }
-    this.items.splice(0, 0, element);
   }
 
   addBack(element: T): void {
