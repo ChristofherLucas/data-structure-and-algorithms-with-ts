@@ -5,7 +5,7 @@ export class Stack<T> {
     this.items = [];
   }
 
-  stackUp(element: T) {
+  stackUp(element: T): void {
     this.items.push(element);
   }
 
