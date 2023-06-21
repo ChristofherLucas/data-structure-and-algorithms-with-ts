@@ -1,19 +1,22 @@
 export class Deck<T> {
   private items: T[];
+  private lowestCount: number;
   constructor() {
     this.items = [];
+    this.lowestCount = 0;
   }
 
   addFront(element: T) {
     if (this.isEmpty()) {
       this.addBack(element);
-    } else if (this.items.length > 0) {
-      this.items.splice(this.items.length - 1, 0, element);
+    } else if (this.lowestCount > 0) {
+      this.lowestCount--;
+      this.items[this.lowestCount] = element;
     } else {
       for (let i = this.items.length; i > 0; i--) {
-        this.items.splice(i, 0, this.items[i - 1]);
+        this.items[i] = this.items[i - 1];
       }
-      this.items.splice(0, 0, element);
+      this.items[0] = element;
     }
   }
 
