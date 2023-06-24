@@ -7,10 +7,3 @@ const stack = new Stack();
 const queue = new Queue();
 const deck = new Deck();
 const list = new LinkedList();
-
-list.push("John");
-list.push("Jack");
-list.push("Camila");
-list.push("Carl");
-
-console.log(list.removeAt(0));
