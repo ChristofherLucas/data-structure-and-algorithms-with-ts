@@ -15,4 +15,4 @@ list.push("Carl");
 list.push("Ingrid");
 
 
-console.log(list.indexOf("Ingrid"))
+console.log(list.toString())

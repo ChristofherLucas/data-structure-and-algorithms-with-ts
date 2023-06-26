@@ -111,4 +111,17 @@ export class LinkedList<T> {
   getHead() {
     return this.head;
   }
+
+  toString() {
+    if (this.head == null) {
+      return "";
+    }
+    let linkedListString = `${this.head.element}`;
+    let current = this.head.next;
+    for (let i = 0; i < this.size() && current != null; i++) {
+      linkedListString = `${linkedListString}, ${current.element}`;
+      current = current.next;
+    }
+    return linkedListString;
+  }
 }
