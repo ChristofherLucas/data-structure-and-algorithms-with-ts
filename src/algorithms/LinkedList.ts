@@ -94,4 +94,9 @@ export class LinkedList<T> {
     }
     return -1;
   }
+
+  remove(element: T) {
+    const index = this.indexOf(element);
+    return this.removeAt(index);
+  }
 }
