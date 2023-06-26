@@ -103,4 +103,8 @@ export class LinkedList<T> {
   size() {
     return this.count;
   }
+
+  isEmpty() {
+    return this.size() === 0;
+  }
 }
