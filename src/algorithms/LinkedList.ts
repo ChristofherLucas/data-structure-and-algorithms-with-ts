@@ -107,4 +107,8 @@ export class LinkedList<T> {
   isEmpty() {
     return this.size() === 0;
   }
+
+  getHead() {
+    return this.head;
+  }
 }
