@@ -99,4 +99,8 @@ export class LinkedList<T> {
     const index = this.indexOf(element);
     return this.removeAt(index);
   }
+
+  size() {
+    return this.count;
+  }
 }
