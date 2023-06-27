@@ -1,23 +1,12 @@
-function equalsFn<T>(a: T, b: T): boolean {
-  return a === b;
-}
-
-class Node<T> {
-  public element: T;
-  public next: Node<T> | null;
-
-  constructor(element: T) {
-    this.element = element;
-    this.next = null;
-  }
-}
+import { Node } from "../utils/Node";
+import defaultEquals from "../utils/equalsFn";
 
 export class LinkedList<T> {
-  private count: number;
-  private head: Node<T> | null;
+  public count: number;
+  public head: Node<T> | null;
   private equalsFn;
 
-  constructor() {
+  constructor(equalsFn = defaultEquals) {
     this.count = 0;
     this.head = null;
     this.equalsFn = equalsFn;
@@ -39,7 +28,7 @@ export class LinkedList<T> {
   }
 
   removeAt(index: number) {
-    if (index >= 0 && index < this.count) {
+    if (index >= 0 && index < this.size()) {
       let current = this.head;
       if (index === 0) {
         this.head = current!.next;
@@ -55,7 +44,7 @@ export class LinkedList<T> {
   }
 
   getElementAt(index: number) {
-    if (index >= 0 && index < this.count) {
+    if (index >= 0 && index < this.size()) {
       let current = this.head;
       for (let i = 0; i < index && current != null; i++) {
         current = current!.next;
@@ -86,7 +75,7 @@ export class LinkedList<T> {
 
   indexOf(element: T) {
     let current = this.head;
-    for (let i = 0; i < this.count && current != null; i++) {
+    for (let i = 0; i < this.size() && current != null; i++) {
       if (this.equalsFn(element, current.element)) {
         return i;
       }
