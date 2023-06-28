@@ -1,9 +1,9 @@
-import { Element } from "../utils/Element";
+import { Node } from "../utils/Node";
 import defaultEquals from "../utils/equals";
 
 export class LinkedList<T> {
   public count: number;
-  public head: Element<T> | undefined;
+  public head: Node<T> | undefined;
   private equals;
 
   constructor(equals = defaultEquals) {
@@ -12,17 +12,16 @@ export class LinkedList<T> {
     this.equals = equals;
   }
 
-  push(value: T): void {
-    const element = new Element(value);
-    let current;
+  push(element: T): void {
+    const node = new Node(element);
     if (this.head === undefined) {
-      this.head = element;
+      this.head = node;
     } else {
-      current = this.head;
-      while (current!.nextValue != undefined) {
-        current = current!.nextValue;
+      let current = this.head;
+      while (current!.next != undefined) {
+        current = current!.next;
       }
-      current!.nextValue = element;
+      current!.next = node;
     }
     this.count++;
   }
@@ -31,40 +30,40 @@ export class LinkedList<T> {
     if (index >= 0 && index < this.size()) {
       let current = this.head;
       if (index === 0) {
-        this.head = current!.nextValue;
+        this.head = current!.next;
       } else {
         const previous = this.getElementAt(index - 1);
-        current = previous!.nextValue;
-        previous!.nextValue = current!.nextValue;
+        current = previous!.next;
+        previous!.next = current!.next;
       }
       this.count--;
-      return current!.value;
+      return current!.element;
     }
   }
 
-  getElementAt(index: number): Element<T> | undefined {
+  getElementAt(index: number): Node<T> | undefined {
     if (index >= 0 && index < this.size()) {
       let current = this.head;
       for (let i = 0; i < index && current != undefined; i++) {
-        current = current!.nextValue;
+        current = current!.next;
       }
       return current;
     }
     return undefined;
   }
 
-  insert(value: T, index: number): boolean {
+  insert(element: T, index: number): boolean {
     if (index >= 0 && index < this.count) {
-      const element = new Element(value);
+      const node = new Node(element);
       if (index === 0) {
         const current = this.head;
-        element.nextValue = current;
-        this.head = element;
+        node.next = current;
+        this.head = node;
       } else {
         const previous = this.getElementAt(index - 1);
-        const current = previous!.nextValue;
-        element.nextValue = current;
-        previous!.nextValue = element;
+        const current = previous!.next;
+        node.next = current;
+        previous!.next = node;
       }
       this.count++;
       return true;
@@ -75,10 +74,10 @@ export class LinkedList<T> {
   indexOf(element: T): number {
     let current = this.head;
     for (let i = 0; i < this.size() && current != undefined; i++) {
-      if (this.equals(element, current.value)) {
+      if (this.equals(element, current.element)) {
         return i;
       }
-      current = current.nextValue;
+      current = current.next;
     }
     return -1;
   }
@@ -96,7 +95,7 @@ export class LinkedList<T> {
     return this.size() === 0;
   }
 
-  getHead(): Element<T> | undefined {
+  getHead(): Node<T> | undefined {
     return this.head;
   }
 
@@ -104,11 +103,11 @@ export class LinkedList<T> {
     if (this.head == null) {
       return "";
     }
-    let linkedListString = `${this.head.value}`;
-    let current = this.head.nextValue;
+    let linkedListString = `${this.head.element}`;
+    let current = this.head.next;
     for (let i = 0; i < this.size() && current != undefined; i++) {
-      linkedListString = `${linkedListString}, ${current.value}`;
-      current = current.nextValue;
+      linkedListString = `${linkedListString}, ${current.element}`;
+      current = current.next;
     }
     return linkedListString;
   }
