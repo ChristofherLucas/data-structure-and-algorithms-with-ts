@@ -1,11 +1,13 @@
+import { CircularLinkedList } from "./algorithms/linkedList/CircularLinkedList";
 import { Deck } from "./algorithms/Deck";
-import { DoublyLinkedList } from "./algorithms/DoublyLinkedList";
-import { LinkedList } from "./algorithms/LinkedList";
+import { DoublyLinkedList } from "./algorithms/linkedList/DoublyLinkedList";
+import { LinkedList } from "./algorithms/linkedList/LinkedList";
 import { Queue } from "./algorithms/Queue";
 import { Stack } from "./algorithms/Stack";
 
 const stack = new Stack();
 const queue = new Queue();
 const deck = new Deck();
-const list = new LinkedList();
-const doublyList = new DoublyLinkedList();
+const linkedList = new LinkedList();
+const doublyLinkedList = new DoublyLinkedList();
+const circularLinkedList = new CircularLinkedList();

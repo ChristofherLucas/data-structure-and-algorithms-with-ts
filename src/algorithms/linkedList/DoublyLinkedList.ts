@@ -1,29 +1,32 @@
-import { Node } from "../utils/Node";
-import defaultEquals from "../utils/equals";
+import { DoublyNode } from "../../utils/DoublyNode";
+import defaultEquals from "../../utils/equals";
 
-export class LinkedList<T> {
-  public count: number;
-  public head: Node<T> | undefined;
+export class DoublyLinkedList<T> {
+  private count: number;
+  private head: DoublyNode<T> | undefined;
+  private tail: DoublyNode<T> | undefined;
   private equals;
 
   constructor(equals = defaultEquals) {
     this.count = 0;
     this.head = undefined;
+    this.tail = undefined;
     this.equals = equals;
   }
 
-  push(element: T): void {
-    const node = new Node(element);
-    if (this.head === undefined) {
+  push(element: T) {
+    const node = new DoublyNode(element);
+    if (this.head == undefined) {
       this.head = node;
     } else {
       let current = this.head;
-      while (current!.next != undefined) {
-        current = current!.next;
+      while (current.next != undefined) {
+        current = current.next;
       }
-      current!.next = node;
+      current.next = node;
     }
     this.count++;
+    return true;
   }
 
   removeAt(index: number): T | undefined {
@@ -31,17 +34,27 @@ export class LinkedList<T> {
       let current = this.head;
       if (index === 0) {
         this.head = current!.next;
+        if (this.size() === 1) {
+          this.tail = undefined;
+        } else {
+          this.head!.previous = undefined;
+        }
+      } else if (index === this.size() - 1) {
+        current = this.tail;
+        this.tail = current!.previous;
+        this.tail!.next = undefined;
       } else {
-        const previous = this.getElementAt(index - 1);
-        current = previous!.next;
-        previous!.next = current!.next;
+        current = this.getElementAt(index);
+        const previous = current!.previous;
+        previous!.next = current?.next;
+        current!.next!.previous = previous;
       }
       this.count--;
       return current!.element;
     }
   }
 
-  getElementAt(index: number): Node<T> | undefined {
+  getElementAt(index: number): DoublyNode<T> | undefined {
     if (index >= 0 && index < this.size()) {
       let current = this.head;
       for (let i = 0; i < index && current != undefined; i++) {
@@ -53,17 +66,30 @@ export class LinkedList<T> {
   }
 
   insert(element: T, index: number): boolean {
-    if (index >= 0 && index < this.count) {
-      const node = new Node(element);
+    if (index >= 0 && index <= this.size()) {
+      const node = new DoublyNode(element);
+      let current = this.head;
       if (index === 0) {
-        const current = this.head;
-        node.next = current;
-        this.head = node;
+        if (this.head == undefined) {
+          this.head = node;
+          this.tail = node;
+        } else {
+          node.next = this.head;
+          current!.previous = node;
+          this.tail = node;
+        }
+      } else if (index === this.size()) {
+        current = this.tail;
+        current!.next = node;
+        node.previous = current;
+        this.tail = node;
       } else {
         const previous = this.getElementAt(index - 1);
-        const current = previous!.next;
+        current = previous!.next;
         node.next = current;
         previous!.next = node;
+        current!.previous = node;
+        node.previous = previous;
       }
       this.count++;
       return true;
@@ -95,7 +121,7 @@ export class LinkedList<T> {
     return this.size() === 0;
   }
 
-  getHead(): Node<T> | undefined {
+  getHead(): DoublyNode<T> | undefined {
     return this.head;
   }
 
