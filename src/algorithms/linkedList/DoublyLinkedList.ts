@@ -2,9 +2,9 @@ import { DoublyNode } from "../../utils/DoublyNode";
 import defaultEquals from "../../utils/equals";
 
 export class DoublyLinkedList<T> {
-  private count: number;
-  private head: DoublyNode<T> | undefined;
-  private tail: DoublyNode<T> | undefined;
+  public count: number;
+  public head: DoublyNode<T> | undefined;
+  public tail: DoublyNode<T> | undefined;
   private equals;
 
   constructor(equals = defaultEquals) {
