@@ -19,8 +19,8 @@ export class CircularDoublyLinkedList<T> extends DoublyLinkedList<T> {
           node.next = this.head;
           current!.previous = node;
           this.tail = node;
-          node.next = this.head;
-          this.head = this.tail;
+          this.tail.next = this.head;
+          this.head.previous = this.tail;
         }
       } else if (index === this.size()) {
         current = this.tail;
