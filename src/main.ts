@@ -5,6 +5,7 @@ import { LinkedList } from "./algorithms/linkedList/LinkedList";
 import { Queue } from "./algorithms/Queue";
 import { Stack } from "./algorithms/Stack";
 import { CircularDoublyLinkedList } from "./algorithms/linkedList/CircularDoublyLinkedList";
+import { SortedLinkedList } from "./algorithms/linkedList/SortedLinkedList";
 
 const stack = new Stack();
 const queue = new Queue();
@@ -13,3 +14,9 @@ const linkedList = new LinkedList();
 const doublyLinkedList = new DoublyLinkedList();
 const circularLinkedList = new CircularLinkedList();
 const circularDoublyLinkedList = new CircularDoublyLinkedList();
+const sortedLinkedList = new SortedLinkedList();
+
+sortedLinkedList.insert("John");
+sortedLinkedList.insert("Jack");
+
+console.log(sortedLinkedList.toString())
