@@ -4,3 +4,13 @@ export function union<T>(firstSet: Set<T>, secondSet: Set<T>) {
   secondSet.forEach((value: T) => unionSet.add(value));
   return unionSet;
 }
+
+export function intersection<T>(firstSet: Set<T>, secondSet: Set<T>) {
+  const intersection = new Set();
+  firstSet.forEach((value) => {
+    if (!secondSet.has(value)) {
+      intersection.add(value);
+    }
+  });
+  return intersection;
+}
