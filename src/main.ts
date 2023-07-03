@@ -6,6 +6,7 @@ import { Queue } from "./algorithms/Queue";
 import { Stack } from "./algorithms/Stack";
 import { CircularDoublyLinkedList } from "./algorithms/linkedList/CircularDoublyLinkedList";
 import { SortedLinkedList } from "./algorithms/linkedList/SortedLinkedList";
+import { union } from "./algorithms/operationsSets";
 
 const stack = new Stack();
 const queue = new Queue();
