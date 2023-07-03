@@ -14,3 +14,13 @@ export function intersection<T>(firstSet: Set<T>, secondSet: Set<T>) {
   });
   return intersection;
 }
+
+export function diference<T>(firstSet: Set<T>, secondSet: Set<T>) {
+  const diference = new Set();
+  firstSet.forEach((value) => {
+    if (!secondSet.has(value)) {
+      diference.add(value);
+    }
+  });
+  return diference;
+}
