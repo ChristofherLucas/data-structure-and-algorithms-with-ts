@@ -15,8 +15,3 @@ const doublyLinkedList = new DoublyLinkedList();
 const circularLinkedList = new CircularLinkedList();
 const circularDoublyLinkedList = new CircularDoublyLinkedList();
 const sortedLinkedList = new SortedLinkedList();
-
-sortedLinkedList.insert("John");
-sortedLinkedList.insert("Jack");
-
-console.log(sortedLinkedList.toString())
