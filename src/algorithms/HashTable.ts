@@ -1,13 +1,13 @@
 import { ValuePair } from "../utils/ValuePair";
 
 export class HashTable<T> {
-  private table: { [key: string]: ValuePair<T> };
+  public table: { [key: string]: ValuePair<T> };
 
   constructor() {
     this.table = {};
   }
 
-  private loseLoseHashCode(key: string) {
+  loseLoseHashCode(key: string) {
     let hash = 0;
     for (let i = 0; i < key.length; i++) {
       hash += key.charCodeAt(i);

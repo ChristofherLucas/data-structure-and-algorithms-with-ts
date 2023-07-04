@@ -19,3 +19,8 @@ const circularDoublyLinkedList = new CircularDoublyLinkedList();
 const sortedLinkedList = new SortedLinkedList();
 const hashTable = new HashTable();
 const hasSeparateChainig = new HashTableSeprateChaining();
+
+hasSeparateChainig.put("Gandalf", "gandald@gmail.com");
+hasSeparateChainig.put("Tyrion", "gandald@gmail.com");
+hasSeparateChainig.put("John", "john@gmail.com");
+console.log(hasSeparateChainig);
