@@ -49,4 +49,29 @@ export class HashTableSeprateChaining<T> {
     }
     return undefined;
   }
+
+  remove(key: string) {
+    const position = this.loseLoseHashCode(key);
+    const linkedList = this.table[position];
+    if (linkedList != undefined && !linkedList.isEmpty()) {
+      let current = linkedList.getHead() as {
+        next: any;
+        element: {
+          key: string;
+          value: T;
+        };
+      };
+      while (current != undefined) {
+        if (current.element.key === key) {
+          linkedList.remove(current.element as T);
+          if (linkedList.isEmpty()) {
+            delete this.table[position];
+          }
+          return true;
+        }
+        current = current.next;
+      }
+    }
+    return false;
+  }
 }
