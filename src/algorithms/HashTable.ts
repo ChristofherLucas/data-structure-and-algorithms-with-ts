@@ -27,4 +27,14 @@ export class HashTable<T> {
     const valuePair = this.table[this.loseLoseHashCode(key)];
     return valuePair == null ? undefined : valuePair.value;
   }
+
+  remove(key: string) {
+    const hash = this.loseLoseHashCode(key);
+    const valuePair = this.table[hash];
+    if (valuePair != null) {
+      delete this.table[hash];
+      return true;
+    }
+    return false;
+  }
 }
