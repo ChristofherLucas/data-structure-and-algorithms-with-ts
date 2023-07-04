@@ -1,5 +1,5 @@
 export class ValuePair<T> {
-  private key: string;
+  public key: string;
   public value: T;
 
   constructor(key: string, value: T) {

@@ -1,3 +1,4 @@
+import { Node } from "../utils/Node";
 import { ValuePair } from "../utils/ValuePair";
 import { LinkedList } from "./linkedList/LinkedList";
 
@@ -26,5 +27,26 @@ export class HashTableSeprateChaining<T> {
       return true;
     }
     return false;
+  }
+
+  get(key: string) {
+    const positon = this.loseLoseHashCode(key);
+    const linkedList = this.table[positon];
+    if (linkedList != undefined && !linkedList.isEmpty()) {
+      let current = linkedList.getHead() as {
+        next: any;
+        element: {
+          key: string;
+          value: T;
+        };
+      };
+      while (current != undefined) {
+        if (current.element.key === key) {
+          return current.element.value;
+        }
+        current = current.next;
+      }
+    }
+    return undefined;
   }
 }
