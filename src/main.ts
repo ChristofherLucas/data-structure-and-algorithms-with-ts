@@ -6,6 +6,8 @@ import { Queue } from "./algorithms/Queue";
 import { Stack } from "./algorithms/Stack";
 import { CircularDoublyLinkedList } from "./algorithms/linkedList/CircularDoublyLinkedList";
 import { SortedLinkedList } from "./algorithms/linkedList/SortedLinkedList";
+import { HashTable } from "./algorithms/HashTable";
+import { HashTableSeprateChaining } from "./algorithms/HashTableSeparateChaining";
 
 const stack = new Stack();
 const queue = new Queue();
@@ -15,5 +17,5 @@ const doublyLinkedList = new DoublyLinkedList();
 const circularLinkedList = new CircularLinkedList();
 const circularDoublyLinkedList = new CircularDoublyLinkedList();
 const sortedLinkedList = new SortedLinkedList();
-
-const map = new Map();
+const hashTable = new HashTable();
+const hasSeparateChainig = new HashTableSeprateChaining();
