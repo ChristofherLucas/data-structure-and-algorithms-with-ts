@@ -1,6 +1,6 @@
 export class ValuePair<T> {
   private key: string;
-  private value: T;
+  public value: T;
 
   constructor(key: string, value: T) {
     this.key = key;

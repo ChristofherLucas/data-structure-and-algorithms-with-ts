@@ -22,4 +22,9 @@ export class HashTable<T> {
     }
     return false;
   }
+
+  get(key: string) {
+    const valuePair = this.table[this.loseLoseHashCode(key)];
+    return valuePair == null ? undefined : valuePair.value;
+  }
 }
