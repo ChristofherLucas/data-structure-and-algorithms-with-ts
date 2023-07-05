@@ -1,9 +1,8 @@
-import { Node } from "../utils/Node";
 import { ValuePair } from "../utils/ValuePair";
 import { LinkedList } from "./linkedList/LinkedList";
 
 export class HashTableSeprateChaining<T> {
-  private table: { [key: string]: LinkedList<T> };
+  public table: { [key: string]: LinkedList<T> };
 
   constructor() {
     this.table = {};
