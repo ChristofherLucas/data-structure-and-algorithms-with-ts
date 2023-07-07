@@ -8,7 +8,7 @@ import { CircularDoublyLinkedList } from "./algorithms/linkedList/CircularDoubly
 import { SortedLinkedList } from "./algorithms/linkedList/SortedLinkedList";
 import { HashTable } from "./algorithms/HashTable";
 import { HashTableSeprateChaining } from "./algorithms/HashTableSeparateChaining";
-import { Tree } from "./algorithms/Tree";
+import { BinarySearchTree } from "./algorithms/BinarySearchTree";
 
 const stack = new Stack();
 const queue = new Queue();
@@ -20,4 +20,4 @@ const circularDoublyLinkedList = new CircularDoublyLinkedList();
 const sortedLinkedList = new SortedLinkedList();
 const hashTable = new HashTable();
 const hashSeparateChaining = new HashTableSeprateChaining();
-const tree = new Tree();
+const binarySearchTree = new BinarySearchTree();
