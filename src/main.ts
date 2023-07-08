@@ -21,3 +21,7 @@ const sortedLinkedList = new SortedLinkedList();
 const hashTable = new HashTable();
 const hashSeparateChaining = new HashTableSeprateChaining();
 const binarySearchTree = new BinarySearchTree();
+
+binarySearchTree.insert(11);
+
+console.log(binarySearchTree);
