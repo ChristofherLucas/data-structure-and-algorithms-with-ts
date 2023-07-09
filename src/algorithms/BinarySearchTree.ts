@@ -1,15 +1,8 @@
-import defaulCompare from "../utils/compare";
-
-//less_than -1
-//bigger_than 1
-
 export class BinarySearchTree<T> {
   private root: Node<T> | undefined;
-  private compareFn;
 
-  constructor(compareFn = defaulCompare) {
+  constructor() {
     this.root = undefined;
-    this.compareFn = compareFn;
   }
 
   insert(key: T) {
@@ -21,13 +14,13 @@ export class BinarySearchTree<T> {
   }
 
   insertNode(node: Node<T>, key: T) {
-    if (this.compareFn(key, node.key) === -1) {
+    if (key < node.key) {
       if (node.left == undefined) {
         node.left = new Node(key);
       } else {
         this.insertNode(node.left, key);
       }
-    } else { 
+    } else {
       if (node.right === undefined) {
         node.right = new Node(key);
       } else {
@@ -35,6 +28,8 @@ export class BinarySearchTree<T> {
       }
     }
   }
+
+  inOrderTraverse() {}
 }
 
 class Node<T> {

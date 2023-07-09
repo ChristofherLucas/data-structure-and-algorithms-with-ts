@@ -23,5 +23,7 @@ const hashSeparateChaining = new HashTableSeprateChaining();
 const binarySearchTree = new BinarySearchTree();
 
 binarySearchTree.insert(11);
-
+binarySearchTree.insert(15);
+// binarySearchTree.insert(7);
+binarySearchTree.insert(0);
 console.log(binarySearchTree);
