@@ -29,7 +29,20 @@ export class BinarySearchTree<T> {
     }
   }
 
-  inOrderTraverse() {}
+  inOrderTraverse(callback: (value: T) => void) {
+    this.inOrderTraverseNode(this.root, callback);
+  }
+
+  private inOrderTraverseNode(
+    node: Node<T> | undefined,
+    callback: (value: T) => void
+  ) {
+    if (node != undefined) {
+      this.inOrderTraverseNode(node.left, callback);
+      callback(node.key);
+      this.inOrderTraverseNode(node.right, callback);
+    }
+  }
 }
 
 class Node<T> {
