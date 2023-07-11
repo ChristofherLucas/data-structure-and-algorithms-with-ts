@@ -13,7 +13,7 @@ export class BinarySearchTree<T> {
     }
   }
 
-  insertNode(node: Node<T>, key: T) {
+  private insertNode(node: Node<T>, key: T) {
     if (key < node.key) {
       if (node.left == undefined) {
         node.left = new Node(key);
@@ -41,6 +41,21 @@ export class BinarySearchTree<T> {
       this.inOrderTraverseNode(node.left, callback);
       callback(node.key);
       this.inOrderTraverseNode(node.right, callback);
+    }
+  }
+
+  preOrderTraverse(callback: (value: T) => void) {
+    this.preOrderTraverseNode(this.root, callback);
+  }
+
+  private preOrderTraverseNode(
+    node: Node<T> | undefined,
+    callback: (value: T) => void
+  ) {
+    if (node != undefined) {
+      callback(node.key);
+      this.preOrderTraverseNode(node.left, callback);
+      this.preOrderTraverseNode(node.right, callback);
     }
   }
 }
