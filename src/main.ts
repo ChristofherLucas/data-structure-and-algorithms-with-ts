@@ -33,4 +33,4 @@ binarySearchTree.insert(3);
 binarySearchTree.insert(6);
 binarySearchTree.insert(8);
 
-binarySearchTree.preOrderTraverse((value) => console.log(value));
+binarySearchTree.posOrderTraverse((value) => console.log(value));

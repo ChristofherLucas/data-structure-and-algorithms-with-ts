@@ -68,8 +68,8 @@ export class BinarySearchTree<T> {
     callback: (value: T) => void
   ) {
     if (node != undefined) {
-      this.preOrderTraverseNode(node.left, callback);
-      this.preOrderTraverseNode(node.right, callback);
+      this.posOrderTraverseNode(node.left, callback);
+      this.posOrderTraverseNode(node.right, callback);
       callback(node.key);
     }
   }
