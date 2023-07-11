@@ -58,6 +58,21 @@ export class BinarySearchTree<T> {
       this.preOrderTraverseNode(node.right, callback);
     }
   }
+
+  posOrderTraverse(callback: (value: T) => void) {
+    this.posOrderTraverseNode(this.root, callback);
+  }
+
+  private posOrderTraverseNode(
+    node: Node<T> | undefined,
+    callback: (value: T) => void
+  ) {
+    if (node != undefined) {
+      this.preOrderTraverseNode(node.left, callback);
+      this.preOrderTraverseNode(node.right, callback);
+      callback(node.key);
+    }
+  }
 }
 
 class Node<T> {
