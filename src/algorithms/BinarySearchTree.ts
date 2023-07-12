@@ -73,6 +73,14 @@ export class BinarySearchTree<T> {
       callback(node.key);
     }
   }
+
+  min() {
+    let current = this.root;
+    while (current != null && current.left != null) {
+      current = current.left;
+    }
+    return current;
+  }
 }
 
 class Node<T> {
