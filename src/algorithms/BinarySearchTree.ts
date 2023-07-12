@@ -88,6 +88,22 @@ export class BinarySearchTree<T> {
       [(current = current.right)];
     return current;
   }
+
+  search(key: T) {
+    return this.searchNode(this.root, key);
+  }
+
+  private searchNode(node: Node<T> | undefined, key: T): boolean {
+    if (node == undefined) {
+      return false;
+    }
+    if (key < node.key) {
+      return this.searchNode(node.left, key);
+    } else if (key > node.key) {
+      return this.searchNode(node.right, key);
+    }
+    return true;
+  }
 }
 
 class Node<T> {

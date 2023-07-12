@@ -33,4 +33,4 @@ binarySearchTree.insert(3);
 binarySearchTree.insert(6);
 binarySearchTree.insert(8);
 
-console.log(binarySearchTree.max());
+console.log(binarySearchTree.search(80));
