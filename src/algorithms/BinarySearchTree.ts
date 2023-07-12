@@ -76,9 +76,16 @@ export class BinarySearchTree<T> {
 
   min() {
     let current = this.root;
-    while (current != null && current.left != null) {
+    while (current != undefined && current.left != undefined) {
       current = current.left;
     }
+    return current;
+  }
+
+  max() {
+    let current = this.root;
+    while (current != undefined && current.right != undefined)
+      [(current = current.right)];
     return current;
   }
 }
