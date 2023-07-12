@@ -75,6 +75,10 @@ export class BinarySearchTree<T> {
   }
 
   min() {
+    return this.minNode(this.root);
+  }
+
+  private minNode(node: Node<T> | undefined) {
     let current = this.root;
     while (current != undefined && current.left != undefined) {
       current = current.left;
@@ -103,6 +107,38 @@ export class BinarySearchTree<T> {
       return this.searchNode(node.right, key);
     }
     return true;
+  }
+
+  remove(key: T) {
+    return this.removeNode(this.root, key);
+  }
+
+  private removeNode(node: Node<T> | undefined, key: T): Node<T> | undefined {
+    if (key == undefined) {
+      return undefined;
+    }
+    if (key < node!.key) {
+      node!.left = this.removeNode(node?.left, key);
+      return node;
+    } else if (key > node!.key) {
+      node!.right = this.removeNode(node?.right, key);
+    } else {
+      if (node?.left == undefined && node?.right == undefined) {
+        node = undefined;
+        return node;
+      }
+      if (node.left == undefined) {
+        node = node.right;
+        return node;
+      } else if (node.right == undefined) {
+        node = node.left;
+        return node;
+      }
+      const aux = this.minNode(node.right);
+      node.key = aux!.key;
+      node.right = this.removeNode(node.right, aux!.key);
+      return node;
+    }
   }
 }
 
