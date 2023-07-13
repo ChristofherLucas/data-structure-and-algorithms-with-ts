@@ -1,5 +1,5 @@
 export class BinarySearchTree<T> {
-  private root: Node<T> | undefined;
+  protected root: Node<T> | undefined;
 
   constructor() {
     this.root = undefined;
