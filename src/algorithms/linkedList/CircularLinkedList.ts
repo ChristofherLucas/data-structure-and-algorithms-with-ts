@@ -36,7 +36,7 @@ export class CircularLinkedList<T> extends LinkedList<T> {
     if (index >= 0 && index <= this.size()) {
       let current = this.head;
       if (index === 0) {
-        if (this.size() === 1) {
+        if (this.size() === 1) {     
           this.head = undefined;
         } else {
           const removed = this.head;

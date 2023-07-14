@@ -9,6 +9,7 @@ import { SortedLinkedList } from "./algorithms/linkedList/SortedLinkedList";
 import { HashTable } from "./algorithms/HashTable";
 import { HashTableSeprateChaining } from "./algorithms/HashTableSeparateChaining";
 import { BinarySearchTree } from "./algorithms/BinarySearchTree";
+import { AVLTree } from "./algorithms/AVLTree";
 
 const stack = new Stack();
 const queue = new Queue();
@@ -21,3 +22,4 @@ const sortedLinkedList = new SortedLinkedList();
 const hashTable = new HashTable();
 const hashSeparateChaining = new HashTableSeprateChaining();
 const binarySearchTree = new BinarySearchTree();
+const avlTree = new AVLTree();

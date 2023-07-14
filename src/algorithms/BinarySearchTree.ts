@@ -6,7 +6,7 @@ export class BinarySearchTree<T> {
   }
 
   insert(key: T) {
-    if (this.root === undefined) {
+    if (this.root == undefined) {
       this.root = new Node(key);
     } else {
       this.insertNode(this.root, key);
@@ -21,7 +21,7 @@ export class BinarySearchTree<T> {
         this.insertNode(node.left, key);
       }
     } else {
-      if (node.right === undefined) {
+      if (node.right == undefined) {
         node.right = new Node(key);
       } else {
         this.insertNode(node.right, key);
